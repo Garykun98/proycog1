@@ -3,23 +3,21 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
 
-
-
 app = Flask(__name__)
 
 # Change this to your secret key (can be anything, it's for extra protection)
 app.secret_key = 'mysecretkey'
 
 # Enter your database connection details below
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'proycog_users'
+app.config['MYSQL_HOST'] = 'us-cdbr-east-02.cleardb.com'
+app.config['MYSQL_USER'] = 'b629ab6019ca38'
+app.config['MYSQL_PASSWORD'] = '6ba7734f'
+app.config['MYSQL_DB'] = 'heroku_b7bee2d28031202'
 
 # Intialize MySQL
 mysql = MySQL(app)
 
-# http://localhost:5000/pythonlogin/ - this will be the login page, we need to use both GET and POST requests
+
 @app.route('/', methods=['GET', 'POST'])
 def login():
 # Output message if something goes wrong...
@@ -71,9 +69,6 @@ def register():
 @app.route('/home')
 def home():
     return render_template('home.html')   
-
-
-
 
 
 if __name__ =='__main__':
