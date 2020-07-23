@@ -69,6 +69,10 @@ def profile():
 def logout():
     session.clear()
     return render_template('index.html')
+
+@app.route('/carrito')
+def carrito():
+    return render_template('index.html')
 ##run
 if __name__ == '__main__':
     app.run(port=3000, debug=True)
